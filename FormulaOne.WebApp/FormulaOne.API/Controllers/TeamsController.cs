@@ -1,5 +1,6 @@
 ﻿using FormulaOne.API.Data;
 using FormulaOne.API.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,7 @@ namespace FormulaOne.API.Controllers
 {
     [Route("api/[controller]")] // "api/teams"
     [ApiController]
-    [Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class TeamsController : ControllerBase
     {
         private readonly AppDbContext _context;
